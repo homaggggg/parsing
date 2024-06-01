@@ -30,7 +30,7 @@ def UpdateDB(doc, newDoc):
     for x in documents:
         print(x)
 
-client = pymongo.MongoClient("localhost", 27017)
+client = pymongo.MongoClient('mongodb+srv://user:user@cluster0.vddzqai.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
 db = client.Sites
 collection = db.News
 DeleteAllDocsDB()
