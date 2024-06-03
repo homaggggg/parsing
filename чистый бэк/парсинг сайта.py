@@ -7,6 +7,7 @@ import pymongo
 import pprint
 
 def CreateDocDB(doc):
+    print('-подгрузка в бд-', doc)
     x = collection.insert_one(doc)
 
 def readDB():
@@ -30,10 +31,9 @@ def UpdateDB(doc, newDoc):
     for x in documents:
         print(x)
 
-client = pymongo.MongoClient('mongodb+srv://user:user@cluster0.vddzqai.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
+client = pymongo.MongoClient("localhost", 27017)
 db = client.Sites
 collection = db.News
-DeleteAllDocsDB()
 
 conn = sqlite3.connect("ietr.db")
 cursor = conn.cursor()
