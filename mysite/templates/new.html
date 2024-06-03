@@ -1,0 +1,14 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ new.title }}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h1>{{ new.title }}</h1>
+    <p>Link: <a href="{{ new.link }}">{{ new.link }}</a></p>
+    <p>Date: {{ new.date }}</p>
+    <a href="{% url 'news' %}">Back to News List</a>
+</body>
+</html>

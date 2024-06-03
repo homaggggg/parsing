@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>News List</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h1>News List</h1>
+    <a href="{% url 'create' %}">Add News</a>
+    <form method="post" action="{% url 'delete_all' %}">
+        {% csrf_token %}
+        <button type="submit">Delete All News</button>
+    </form>
+    <ul>
+        {% for new in news %}
+            <li>
+                <a href="{% url 'read_one' new.id %}">{{ new.title }}</a>
+                <a href="{% url 'update' new.id %}">Edit</a>
+                <a href="{% url 'delete' new.id %}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
